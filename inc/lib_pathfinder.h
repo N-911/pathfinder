@@ -21,7 +21,7 @@ typedef struct		s_stack
     int			size;
     int*		path;
     int 		n;
-}			t_stack;
+}				t_stack;
 
 typedef struct      s_main
 {

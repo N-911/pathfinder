@@ -30,7 +30,7 @@ char **mx_parse_string(char *s, int j) {
 static void print_err_line_n(int j) {
     mx_printerr("error: line ");
     mx_printerr(mx_itoa(j));
-    mx_printerr(" isn't valid\n");
+    mx_printerr(" is not valid\n");
     exit(1);
 }
 
@@ -51,12 +51,12 @@ static bool check_dist(char *s) {
 
     if (len_s == 0)
         return 0;
-    for (int i = 0; i < len_s - 1; i++) {
+    for (int i = 0; i < len_s; i++) {
         if (!mx_isdigit(s[i]))
             return 0;
     }
     if (mx_atoi(s) > MX_MAX - 1)
         return 0;
-     return 1;
+    return 1;
 }
 

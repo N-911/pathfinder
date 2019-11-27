@@ -21,7 +21,7 @@ install:
 	@ar -rcs $(NAME) $(OBJ)
 	@mkdir obj
 	@mv $(OBJ) ./obj
-	@mv $(SRC) ./obj
+
 uninstall:
 	@rm -rf $(NAME)
 

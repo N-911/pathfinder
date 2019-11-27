@@ -63,7 +63,7 @@ CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
 all: install clean
 install:
-	@cd libmx && make -f Makefile install
+	@make -C libmx
 	@cp $(SRCS) .
 	@cp $(INCI) .
 	@clang $(CFLAGS) -c $(SRC) -I $(INC)
@@ -72,11 +72,11 @@ install:
 	@mv $(OBJ) ./obj
 
 uninstall:
-	@cd libmx && make -f Makefile uninstall
+	@make uninstall -C libmx
 	@rm -rf $(NAME)
 
 clean:
-	@cd libmx && make -f Makefile clean
+	@make clean -C libmx
 	@rm -rf $(INC)
 	@rm -rf $(SRC)
 	@rm -rf $(OBJ)

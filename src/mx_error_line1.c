@@ -5,7 +5,7 @@ void mx_error_line1(char *str, char *line) {
         mx_printerr(MX_INVALID_LINE1);
         exit(1);
     }
-    for (int i = 0; i < mx_strlen(line) - 1; i++) {
+    for (int i = 0; i < mx_strlen(line); i++) {
         if (!(mx_isdigit(line[i]))) {
             mx_printerr(MX_INVALID_LINE1);
             exit(1);

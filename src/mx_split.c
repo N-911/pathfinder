@@ -1,58 +1,51 @@
 #include "lib_pathfinder.h"
 
-static int count_lines(const char *str, char c);
+static int get_char_index(char *str, char c);
+
+static int count_lines(const char *s, char c);
 
 char **mx_split(const char *s, char c) {
-    if (!s)
-        return NULL;
     int count_l = count_lines(s, c);
     char **arr_words = malloc((count_l + 1) * sizeof(char*));
-    int lw = 0;
-    int arr_c = 0;
-
-    for (int i = 0; s[i] != '\0'; i++) {
-        if (s[i] != c) {
-            lw++;
-            if (s[i + 1] == '\0') {
-                arr_words[arr_c] = strncpy(mx_strnew(lw), 
-                (s + i - lw + 1), lw);
-                break;
-            }
-        }
-        else if (s[i] == c) {
-            if (lw == 0) {
-                if (s[i + 1] == '\0') {
-                    arr_words[arr_c] = NULL;
-                    break;
-                }
-                else {
-                    arr_words[arr_c] = strncpy(mx_strnew(1), 
-                    (s + i - lw), 1);
-                    lw = 0;
-                    arr_c++;
-                }
-            }
-            else if (lw != 0) {
-                arr_words[arr_c] = strncpy(mx_strnew(lw), (s + i - lw), lw);
-                lw = 0;
-                arr_c++;
-            }
-        }
+    int p = 0;
+    char *t;
+  
+    for (int i = 0; i < count_l; i++) {
+        t = strdup(s + ((i > 0) ? 1 : 0));
+        p = get_char_index(t, c);
+        if (p == 0 && (t[1] != '\0'))
+            arr_words[i] = mx_strncpy(mx_strnew(p + 1), t, 1);
+        else if (t[1] == '\0')
+            arr_words[i] = NULL;
+        else  
+            arr_words[i] = mx_strncpy(mx_strnew(p), t, p);
+        mx_strdel(&t);
+        s = (s + p + ((i > 0) ? 1 : 0));
     }
     arr_words[count_l] = NULL;
     return (arr_words) ? arr_words : NULL;
 }
 
-static int count_lines(const char *str, char c) {
+static int count_lines(const char *s, char c) {
     int count = 0;
-    int len = mx_strlen(str);
+    int len = mx_strlen(s);
 
-    if (str && c) {
+    if (s && c) {
         for (int i = 0; i < len; i++) {
-            if (str[i] == c)
+            if (s[i] == c)
                 count++;
         }
     }
     return count;
+}
+
+static int get_char_index(char *str, char c) {
+    if ((!str))
+        return -2;
+    for (int i = 0; i < mx_strlen(str); i++) {
+        if (str[i] == c)
+            return i;
+    }
+    return -1;
 }
 
