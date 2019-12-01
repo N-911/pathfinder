@@ -8,7 +8,7 @@ void mx_error_doesnt_exist(char *argv[]) {
         close(f);
         mx_printerr("error: file ");
         mx_printerr(file);
-        mx_printerr(" does not exist");
+        mx_printerr(" does not exist\n");
         close(f);
         exit(1);
     }

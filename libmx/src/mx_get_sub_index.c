@@ -5,7 +5,6 @@ int mx_get_substr_index(const char *str, const char *sub) {
 
     if (!str || !sub)
         return -2;
-
     else if (p == NULL)
         return -1;
     else

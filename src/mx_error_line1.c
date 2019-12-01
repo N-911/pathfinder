@@ -11,7 +11,7 @@ void mx_error_line1(char *str, char *line) {
             exit(1);
         }
     }
-    if (mx_atoi(line) < 2 || mx_strlen(line) > 4) {
+    if (mx_atoi(line) < 2 || mx_atoi(line) > 10000) {
         mx_printerr(MX_INVALID_N_ISLANDS);
         exit(1);
     }

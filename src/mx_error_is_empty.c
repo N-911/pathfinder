@@ -9,7 +9,7 @@ void mx_error_is_empty(char *argv[]) {
     if (r <= 0 ) {
         mx_printerr("error: file ");
         mx_printerr(argv[1]);
-        mx_printerr(" is empty");
+        mx_printerr(" is empty\n");
         exit(1);
     }
 }

@@ -7,7 +7,7 @@ INCI = inc/lib_pathfinder.h
 SRC = 	mx_check_errors.c  \
 	mx_error_doesnt_exist.c \
 	mx_error_argc.c \
-        mx_error_is_empty.c \
+	mx_error_is_empty.c \
 	mx_error_line1.c \
 	mx_fill_struct.c \
 	mx_index_v.c \

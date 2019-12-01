@@ -16,7 +16,7 @@ void mx_back_tracking(t_main *m_stct, t_stack *p_stack) {
         return;
     }
     else {
-        for (int j = n - 1 ; j >= 0; j--) {
+        for (int j = 0; j < n; j++) {
             if (check_next_v(m_stct, p_stack, j)) {
                 push_to_stack(p_stack, j);
                 mx_back_tracking(m_stct, p_stack);

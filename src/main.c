@@ -2,9 +2,9 @@
 
 int main(int argc, char *argv[]) {
     int n;
+    t_main m_stct;
 
     mx_check_errors(argc, argv);
-    t_main m_stct;
     mx_fill_struct(&m_stct, argv);
     n = m_stct.v_count;
     mx_floyd_warshall(&m_stct);

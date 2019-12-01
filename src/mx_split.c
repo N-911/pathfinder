@@ -11,7 +11,7 @@ char **mx_split(const char *s, char c) {
     char *t;
   
     for (int i = 0; i < count_l; i++) {
-        t = strdup(s + ((i > 0) ? 1 : 0));
+        t = mx_strdup(s + ((i > 0) ? 1 : 0));
         p = get_char_index(t, c);
         if (p == 0 && (t[1] != '\0'))
             arr_words[i] = mx_strncpy(mx_strnew(p + 1), t, 1);
