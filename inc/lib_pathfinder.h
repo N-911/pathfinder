@@ -4,13 +4,12 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
-#include <stdio.h>
-#include <stdio.h>
 
 #include "libmx/inc/libmx.h"
+
 #define MX_INVALID_ARGC "usage: ./pathfinder [filename]\n"
 #define MX_INVALID_LINE1 "error: line 1 is not valid\n"
 #define MX_INVALID_N_ISLANDS "error: invalid number of islands\n"

@@ -12,15 +12,16 @@ void mx_back_tracking(t_main *m_stct, t_stack *p_stack) {
     int n = p_stack->n;
 
     if (get_from_stack(p_stack) == p_stack->path[0]) {
-         mx_print_path(m_stct, p_stack);
+        mx_print_path(m_stct, p_stack);
         return;
     }
     else {
-        for (int j = 0; j < n; j++) {
-            if (check_next_v(m_stct, p_stack, j)) {
-                push_to_stack(p_stack, j);
+        for (int i = 0; i < n; i++) {
+            if (check_next_v(m_stct, p_stack, i)) {
+                push_to_stack(p_stack, i);
                 mx_back_tracking(m_stct, p_stack);
                 pop_from_stack(p_stack);
+                //printf("%d\n", pop_from_stack(p_stack));
             }
         }
     }
@@ -47,13 +48,12 @@ static int get_from_stack(t_stack *p_stack) {
 
 static bool check_next_v(t_main *m_stct, t_stack *p_stack, int next_v) {
     int k = get_from_stack(p_stack);
-    int i = p_stack->path[0];
+    int j = p_stack->path[0];
 
     if (k != next_v) {
-        if (m_stct->matr_d[i][k] - m_stct->matr_a[k][next_v]
-            == m_stct->matr_d[i][next_v])
+        if (m_stct->matr_a[k][next_v] == m_stct->matr_d[j][k]
+            - m_stct->matr_d[j][next_v])
             return true;
     }
     return false;
 }
-

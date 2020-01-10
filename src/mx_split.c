@@ -6,7 +6,7 @@ static int count_lines(const char *s, char c);
 
 char **mx_split(const char *s, char c) {
     int count_l = count_lines(s, c);
-    char **arr_words = malloc((count_l + 1) * sizeof(char*));
+    char **arr_words = malloc((count_l + 1) * sizeof(char *));
     int p = 0;
     char *t;
   

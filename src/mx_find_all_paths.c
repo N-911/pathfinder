@@ -19,8 +19,8 @@ static void init_stack(t_main *m_stct, t_stack **p_stack, int i, int j) {
         exit(1);
     (*p_stack)->path = malloc(sizeof(int) * n + 1);
     (*p_stack)->size = 1;
-    (*p_stack)->path[0] = i;
-    (*p_stack)->path[1] = j;
+    (*p_stack)->path[1] = i;
+    (*p_stack)->path[0] = j;
     (*p_stack)->n = n;
 }
 

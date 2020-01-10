@@ -15,7 +15,7 @@ void mx_fill_struct(t_main *m_stct, char *argv[]) {
     mx_error_line1(&str[0], s_str[0]);
     m_stct->v_count = mx_atoi(s_str[0]);
     mx_init_m_d(m_stct);
-    m_stct->arr_v = (char**)malloc((m_stct->v_count + 1) * sizeof(char *));
+    m_stct->arr_v = (char **)malloc((m_stct->v_count + 1) * sizeof(char *));
     m_stct->arr_v_count = 0;
     write_to_struct(m_stct, s_str);
     if (m_stct->arr_v_count != m_stct->v_count) {
@@ -31,8 +31,8 @@ void mx_fill_struct(t_main *m_stct, char *argv[]) {
 
 static void write_to_struct(t_main *m_stct, char **s_str) {
     char **temp;
-    m_stct->arr_v_count = 0;
 
+    m_stct->arr_v_count = 0;
     for (int i = 0; i < m_stct->v_count; i++)
         m_stct->arr_v[i] = NULL;
     for (int j = 1; s_str[j]; j++) {
